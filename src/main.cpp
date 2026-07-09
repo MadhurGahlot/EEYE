@@ -1,7 +1,10 @@
-#include <raylib.h>
+//#include <raylib.h>
+#include "../include/radar.h"
+#include "C:/raylib/include/raylib.h"
 #include <algorithm>
 #include <ctime>
 #include<string>
+
 using namespace std;
 
 const int screenWidth = 800;
