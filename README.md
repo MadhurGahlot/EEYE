@@ -1,218 +1,223 @@
 # WE ARE BULIDING A RADAR USING THE CPP AND RAYLIB
 # g++ main.cpp -IC:\raylib\include -LC:\raylib\lib -lraylib -lopengl32 -lgdi32 -lwinmm -o main
+
 "command to complie"
-EEYE/
-│
-├── frontend/                  # Web Dashboard (React)
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── hooks/
-│   │   ├── services/
-│   │   ├── context/
-│   │   ├── assets/
-│   │   └── App.jsx
-│   └── package.json
-│
-├── backend/                   # API Server
-│   ├── app/
-│   │   ├── api/
-│   │   ├── models/
-│   │   ├── services/
-│   │   ├── database/
-│   │   ├── radar/
-│   │   ├── simulation/
-│   │   ├── utils/
-│   │   └── main.py
-│   ├── requirements.txt
-│   └── .env
-│
-├── radar-engine/              # Raylib Simulation
-│   ├── include/
-│   ├── src/
-│   ├── assets/
-│   ├── build/
-│   └── CMakeLists.txt
-│
-├── ai-engine/                 # Future AI Modules
-│   ├── object_detection/
-│   ├── tracking/
-│   ├── classification/
-│   └── prediction/
-│
-├── database/
-│   ├── schema.sql
-│   └── migrations/
-│
-├── docs/
-│   ├── diagrams/
-│   ├── screenshots/
-│   ├── architecture.md
-│   ├── api.md
-│   └── presentation/
-│
-├── tests/
-│
-│
-└── LICENSE
-Project Overview
+# 🛰️ EEYE (Electronic Eye)
 
-EEYE (Electronic Eye) is a software-defined air surveillance radar platform that simulates the operation of a modern radar command center. The system combines a real-time radar visualization engine, a web-based monitoring dashboard, backend APIs, and future AI modules for target tracking and classification.
+> **A Software-Based Air Surveillance Radar System**
 
-The objective is to demonstrate radar concepts, software architecture, and modern full-stack development without requiring specialized radar hardware.
+EEYE is a modern radar simulation project developed as a college major project. The goal is to build a software-defined air surveillance system that mimics the interface and workflow of a real military radar command center.
 
-System Architecture
-                     User
-                      │
-                      ▼
-        ┌────────────────────────┐
-        │   React Frontend       │
-        │  Command Dashboard     │
-        └──────────┬─────────────┘
-                   │ REST API
-                   ▼
-        ┌────────────────────────┐
-        │     Backend Server     │
-        │ Authentication         │
-        │ Radar Data API         │
-        │ Target Management      │
-        │ Alert System           │
-        └──────────┬─────────────┘
-                   │
-        ┌──────────┴─────────────┐
-        │                        │
-        ▼                        ▼
-  Radar Engine              Database
- (Raylib C++)          PostgreSQL/MySQL
-        │
-        ▼
- AI Detection Engine (Future)
-Technology Stack
-Layer	Technology
-Frontend	React, Vite, Tailwind CSS
-Backend	Python, FastAPI
-Radar Engine	C++, Raylib
-Database	PostgreSQL
-AI Module	Python, OpenCV, YOLO (Future)
-Authentication	JWT
-API	REST
-Version Control	Git & GitHub
-Frontend Responsibilities
-Live radar dashboard
-System status
-Target list
-Alert notifications
-Statistics
-Mission history
-User login
-Responsive interface
-Dark military theme
-Backend Responsibilities
-User authentication
-Radar data processing
-Target management
-Alert generation
-Logging
-REST API
-Communication with AI module
-Database operations
-Radar Engine Responsibilities
-Radar sweep animation
-Grid rendering
-Range rings
-Blinking targets
-Moving targets
-Sweep glow
-Collision detection
-Coordinate conversion
-Zoom and scaling
-AI Module (Future)
-Aircraft detection
-Threat classification
-Object tracking
-Route prediction
-Target prioritization
-Automatic alert generation
-Database
+Unlike traditional radar systems that require specialized hardware, EEYE focuses on creating a realistic radar environment completely in software. The project combines computer graphics, real-time rendering, backend services, web technologies, and AI to simulate target detection, tracking, and monitoring.
 
-Suggested tables:
+---
 
-Users
-Targets
-RadarEvents
-Alerts
-Missions
-SystemLogs
-Settings
-Features
-Current
-Modern radar interface
-Rotating sweep
-Radar rings
-Grid system
-Information panels
-Modular C++ architecture
-Upcoming
-Sweep glow
-Target movement
-Blinking targets
-Zoom control
-Multiple radar modes
-Animated HUD
-CRT effect
-Web dashboard
-AI detection
-Replay mode
-Export reports
-API Endpoints (Planned)
-GET    /targets
-POST   /targets
-PUT    /targets/{id}
-DELETE /targets/{id}
+# 🎯 Vision
 
-GET    /alerts
-GET    /status
-GET    /system
+Our goal is to build a complete radar ecosystem that includes:
 
-POST   /login
-POST   /logout
-POST   /refresh
-Database Flow
-Radar Engine
-      │
-      ▼
-Backend API
-      │
-      ▼
-Database
-      │
-      ▼
-Frontend Dashboard
-Development Roadmap
-Phase 1
-Radar Engine (Raylib)
-Phase 2
-Moving Targets
-Phase 3
-Backend API
-Phase 4
-Database Integration
-Phase 5
-React Dashboard
-Phase 6
-AI Integration
-Phase 7
-Deployment
-Future Scope
-3D radar visualization
-Drone monitoring
-Weather radar mode
-Satellite tracking
-Multi-radar synchronization
-Mobile application
-Cloud deployment
-Machine learning for threat prediction
-Voice alerts
-Real-time networking
+* A real-time radar simulation engine
+* A modern command center dashboard
+* Target tracking and monitoring
+* Backend APIs for communication
+* Database for storing radar events
+* AI-powered target analysis and classification
+* A web application for remote monitoring
 
+By the end of the project, EEYE should feel like a simplified version of a real air-defense command system.
+
+---
+
+# 🚀 Current Progress
+
+At the moment, we are developing the **Radar Engine** using **C++** and **Raylib**.
+
+### Completed
+
+* ✅ Project architecture
+* ✅ Radar window
+* ✅ Radar display panel
+* ✅ Radar grid
+* ✅ Radar sweep animation
+* ✅ Range rings
+* ✅ Military-style UI layout
+* ✅ Modular C++ project structure
+
+### Currently Working On
+
+* 🚧 Sweep glow effect
+* 🚧 Blinking targets
+* 🚧 Dynamic status panel
+* 🚧 Radar animations
+* 🚧 Improved military UI
+
+---
+
+# 🛣️ Development Roadmap
+
+## Phase 1 — Radar Engine (Current)
+
+Build the complete radar visualization system.
+
+Features:
+
+* Radar sweep
+* Range rings
+* Grid
+* Radar animations
+* Target visualization
+* HUD interface
+
+---
+
+## Phase 2 — Simulation
+
+Introduce simulated aircraft and radar behavior.
+
+Planned features:
+
+* Moving aircraft
+* Random target generation
+* Target speed
+* Direction
+* Distance calculation
+* Target IDs
+
+---
+
+## Phase 3 — Backend
+
+Develop the server responsible for radar data.
+
+Planned technologies:
+
+* FastAPI
+* REST APIs
+* JWT Authentication
+* Radar event management
+* Alert system
+
+---
+
+## Phase 4 — Database
+
+Store all radar information.
+
+Planned database:
+
+* PostgreSQL
+
+Data to store:
+
+* Users
+* Targets
+* Radar events
+* Alerts
+* System logs
+* Settings
+
+---
+
+## Phase 5 — Web Dashboard
+
+Build a professional web interface.
+
+Technology:
+
+* React
+* Tailwind CSS
+
+Features:
+
+* Live radar monitoring
+* System status
+* Target list
+* Analytics
+* Alert panel
+* User authentication
+
+---
+
+## Phase 6 — Artificial Intelligence
+
+Introduce AI features.
+
+Future goals:
+
+* Aircraft classification
+* Threat prediction
+* Target prioritization
+* Automatic alert generation
+* Smart tracking
+
+---
+
+# 💻 Technology Stack
+
+| Component       | Technology           |
+| --------------- | -------------------- |
+| Radar Engine    | C++                  |
+| Graphics        | Raylib               |
+| Frontend        | React (Planned)      |
+| Backend         | FastAPI (Planned)    |
+| Database        | PostgreSQL (Planned) |
+| AI              | Python (Planned)     |
+| Version Control | Git & GitHub         |
+
+---
+
+# 📁 Planned Project Structure
+
+```text
+EEYE
+│
+├── radar-engine/      # C++ & Raylib Simulation
+├── frontend/          # React Dashboard
+├── backend/           # FastAPI Server
+├── database/          # SQL Scripts
+├── docs/              # Documentation & Screenshots
+├── assets/            # Fonts & Images
+└── README.md
+```
+
+---
+
+# 🎓 Educational Goals
+
+Through this project, we aim to learn and demonstrate:
+
+* Object-Oriented Programming
+* Computer Graphics
+* Software Architecture
+* Full-Stack Development
+* REST API Design
+* Database Management
+* Team Collaboration
+* Real-Time Systems
+
+---
+
+# 🔮 Future Scope
+
+Our long-term vision includes:
+
+* Multi-radar communication
+* Drone surveillance simulation
+* Weather radar mode
+* Mission replay system
+* Cloud deployment
+* Mobile dashboard
+* AI-assisted surveillance
+* Real-time networking
+* 3D radar visualization
+---
+
+# 📌 Project Status
+
+**Current Version:** Early Development (Phase 1)
+
+The project is under active development. New features and improvements are being added regularly as we progress through each development phase.
+
+---
+
+> **"Building a modern software-based radar system, one feature at a time."**
