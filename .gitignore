@@ -1,2 +1,14 @@
 .exe
 *.exe
+gpt.h
+.agents
+.md
+.bat
+.txt
+*.exe
+*.bat
+*.md
+*.txt
+
+gpt.h
+.agents

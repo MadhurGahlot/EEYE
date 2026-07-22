@@ -1,34 +1,38 @@
-#ifndef FC36AB42_6740_4C66_A2C9_8031397C262D
-#define FC36AB42_6740_4C66_A2C9_8031397C262D
-#include<vector>
-using namespace std;
+#ifndef RADAR_H
+#define RADAR_H
+
 #include "raylib.h"
+#include <string>
+#include <vector>
+using namespace std;
 
-class Radar{
-    public:
-   void Update();
-   void Draw();
-   Radar();
-
-
-private: 
-Vector2 centre ;
-float radius;
-float sweepangle;
-float sweepspeed;
-float range;
-bool isScanning;
-
-
-
+struct RadarInfo {
+  string status;
+  int targets;
+  bool isScanning;
+  float range;
 };
 
+// Class definition
+class Radar {
+private:
+  Vector2 centre;
+  float radius;
+  float sweepAngle;
+  float sweepSpeed;
+  float range;
+  bool isScanning;
+  Rectangle radarPanel;
+  string status;
+  int targets;
 
+public:
+  Radar();
+  void Update();
+  void Draw();
 
+  // Inline getter returning the RadarInfo struct
+  RadarInfo getInfo() const { return {status, targets, isScanning, range}; }
+};
 
-
-
-
-
-
-#endif /* FC36AB42_6740_4C66_A2C9_8031397C262D */
+#endif // RADAR_H

@@ -1,6 +1,6 @@
-//#include <raylib.h>
-#include "../include/radar.h"
-#include "C:/raylib/include/raylib.h"
+//#include "raylib.h"
+#include "raylib.h"
+#include "radar.h"
 #include <algorithm>
 #include <ctime>
 #include<string>
@@ -13,8 +13,8 @@ const int topBarHeight = 150;
 const int bottomBarHeight = 100;
 const int leftPanelWidth = 180;
 const int rightPanelWidth = 220;
-const int fps =60;
-
+const int fps =120;
+Radar radar;
 
 Rectangle topBar = {
     0,
@@ -100,33 +100,9 @@ void DrawLeftPanel()
 void DrawCentrePanel()
 {
     DrawRectangleLinesEx(radarPanel, 2, RED);
+    radar.Draw();
+    
 
-    int centerX = radarPanel.x + radarPanel.width / 2;
-    int centerY = radarPanel.y + radarPanel.height / 2;
-
-    int radius = min((int)radarPanel.width,
-                     (int)radarPanel.height) / 2 - 20;
-
-    Vector2 center = {(float)centerX, (float)centerY};
-
-    DrawCircleLines(centerX, centerY, radius, GREEN);
-
-    for (int r = 20; r < radius; r += 20)
-        DrawCircleLinesV(center, r, GREEN);
-
-    DrawLine(centerX - radius,
-             centerY,
-             centerX + radius,
-             centerY,
-             ORANGE);
-
-    DrawLine(centerX,
-             centerY - radius,
-             centerX,
-             centerY + radius,
-             ORANGE);
-
-    DrawCircleV(center, 5, GREEN);
 }
 
 void DrawRightPanel()
@@ -143,12 +119,20 @@ void DrawRightPanel()
 void DrawBottomBar()
 {
     DrawRectangleLinesEx(bottomBar, 2, RED);
-
-    DrawText("STATUS: ACTIVE | FPS: 60 | TARGETS: 0 | RANGE: 50 km",
-             20,
-             bottomBar.y + 25,
-             20,
-             GREEN);
+    RadarInfo info = radar.getInfo();
+    DrawText(
+        TextFormat(
+            "STATUS: %s | FPS: %d | TARGETS: %d | RANGE: %.0f km",
+            info.status.c_str(),
+            GetFPS(),
+            info.targets,
+            info.range
+        ),
+        20,
+        bottomBar.y + 25,
+        20,
+        GREEN
+    );
 }
 
 void DrawDashboard()
@@ -162,21 +146,24 @@ void DrawDashboard()
 
 void Draw()
 {
-    ClearBackground(BLACK);
+
+    Color backgroundcolor = {30,40,80,};
+    ClearBackground(backgroundcolor);
 
     DrawDashboard();
 }
 
 
-int main()
-{
+int main(){
+    
     InitWindow(screenWidth, screenHeight, "SENTINAL COMMAND CENTER");
     SetTargetFPS(fps);
 
     while (!WindowShouldClose())
     {
+        radar.Update();
         UpdateGame();
-
+       // radar.Draw();
         BeginDrawing();
         Draw();
         EndDrawing();
