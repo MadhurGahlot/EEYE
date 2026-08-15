@@ -25,7 +25,14 @@ private:
   Rectangle radarPanel;
   string status;
   int targets;
-
+  bool radarEnabled = true;
+  Rectangle powerButton;
+  Rectangle scanningbutton;
+  void UpdatePowerButton();
+  void DrawPowerButton();
+  void UpdateScanningButton();
+  void DrawScanningButton();
+     
 public:
   Radar();
   void Update();

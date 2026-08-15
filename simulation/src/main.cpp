@@ -6,7 +6,6 @@
 #include<string>
 
 using namespace std;
-
 const int screenWidth = 800;
 const int screenHeight = 800;
 const int topBarHeight = 150;
@@ -153,6 +152,11 @@ void Draw()
     DrawDashboard();
 }
 
+/*void closewindow(){
+
+    if(IsKeyPressed(KEY_ENTER))
+    CloseWindow();
+}*/
 
 int main(){
     
@@ -161,14 +165,17 @@ int main(){
 
     while (!WindowShouldClose())
     {
+        //closewindow();
         radar.Update();
         UpdateGame();
        // radar.Draw();
         BeginDrawing();
         Draw();
         EndDrawing();
+        
+        
     }
-
+   
     CloseWindow();
 
     return 0;

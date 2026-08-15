@@ -1,14 +1,24 @@
-.exe
-*.exe
-gpt.h
-.agents
-.md
-.bat
-.txt
+# Executables
 *.exe
 *.bat
+
+# Text / documentation
 *.md
 *.txt
 
+# Project-specific files
 gpt.h
 .agents
+
+# Python virtual environments
+*venv
+.venv/
+EEYEvenv/
+*EEYEvenv*
+
+# Python cache
+__pycache__/
+
+.xlxs
+!README.md
+*.xlxs
