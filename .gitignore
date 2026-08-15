@@ -15,7 +15,6 @@ gpt.h
 .venv/
 EEYEvenv/
 *EEYEvenv*
-
 # Python cache
 __pycache__/
 
